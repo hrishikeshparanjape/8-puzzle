@@ -1,0 +1,15 @@
+solution to 8-puzzle problem in python
+
+Instructions for testing:
+run 
+
+    python tile_game.py input.txt
+
+in command line.
+
+This is my first day in python. Please feel free to contribute to the code. I would love to make it object oriented.
+
+Also, please see:
+
+8-puzzle problem: http://en.wikipedia.org/wiki/Fifteen_puzzle
+A-Star Algorithm: http://en.wikipedia.org/wiki/A-star_algorithm
