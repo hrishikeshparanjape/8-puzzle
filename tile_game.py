@@ -59,15 +59,15 @@ def get_goalstate(grid):
         goal.append(list(row))
     return goal
 
-#Helper function for find_manhatten_distance
+#Helper function for find_manhattan_distance
 def distance_from_goal(i,j,elem,goalstate):
     for i1 in range(len(goalstate)):
         for j1 in range(len(goalstate[i])):
             if (elem == goalstate[i1][j1]):
                 return int(math.fabs(i1-i) + math.fabs(j1-j))
             
-#Find manhatten distance from current state and goal state
-def find_manhatten_distance(state,goalstate):
+#Find manhattan distance from current state and goal state
+def find_manhattan_distance(state,goalstate):
     distance = 0
     for i in range(len(state)):
         for j in range(len(state[i])):
@@ -202,12 +202,12 @@ def solve(goal):
         M = []                  #calculate heuristic function for possible moves
         for i in range(len(m)):
             tempdict =  {
-                            'state':m[i],
-                            'f':0,
-                            'g':n['g']+1,
-                            'h':find_manhatten_distance(m[i],goal),
-                            'ancestor':n
-                        }
+                'state':m[i],
+                'f':0,
+                'g':n['g']+1,
+                'h':find_manhattan_distance(m[i],goal),
+                'ancestor':n
+            }
             tempdict['f'] = tempdict['g'] + tempdict['h']
             M.append(tempdict)
 
@@ -220,12 +220,12 @@ def solve(goal):
 grid = get_input()
 goal = get_goalstate(grid)
 initialstate =  {
-                    'state':grid,
-                    'f':find_manhatten_distance(grid,goal),
-                    'g':0,
-                    'h':find_manhatten_distance(grid,goal),
-                    'ancestor': None
-                }
+    'state':grid,
+    'f':find_manhattan_distance(grid,goal),
+    'g':0,
+    'h':find_manhattan_distance(grid,goal),
+    'ancestor': None
+}
 
 OPENLIST.append(initialstate)
 solve(goal)
