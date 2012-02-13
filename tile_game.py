@@ -202,11 +202,11 @@ def solve(goal):
         M = []                  #calculate heuristic function for possible moves
         for i in range(len(m)):
             tempdict =  {
-                'state':m[i],
-                'f':0,
-                'g':n['g']+1,
-                'h':find_manhattan_distance(m[i],goal),
-                'ancestor':n
+                'state': m[i],
+                'f': 0,
+                'g': n['g']+1,
+                'h': find_manhattan_distance(m[i],goal),
+                'ancestor': n
             }
             tempdict['f'] = tempdict['g'] + tempdict['h']
             M.append(tempdict)
@@ -220,10 +220,10 @@ def solve(goal):
 grid = get_input()
 goal = get_goalstate(grid)
 initialstate =  {
-    'state':grid,
-    'f':find_manhattan_distance(grid,goal),
-    'g':0,
-    'h':find_manhattan_distance(grid,goal),
+    'state': grid,
+    'f': find_manhattan_distance(grid,goal),
+    'g': 0,
+    'h': find_manhattan_distance(grid,goal),
     'ancestor': None
 }
 
