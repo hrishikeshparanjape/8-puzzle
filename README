@@ -13,3 +13,50 @@ Also, please see:
 
 8-puzzle problem: http://en.wikipedia.org/wiki/Fifteen_puzzle
 A-Star Algorithm: http://en.wikipedia.org/wiki/A-star_algorithm
+
+Here is exact problem statement:
+
+A tile game is game played on an n x m rectangle of squares. Each square can be either empty, have a movable tile in it, or have an non-movable tile in it. A valid starting configuration for a tile game has j movable tiles with labels 1, ..., j, and k non-movable tiles such that 1 ≤ j + k < n × m. A move in a tile game consists in swapping a movable tile with an empty tile which is either immediately above or below it or to its immediate left or right. We say a square (x,y) is less than a square (x', y') if x < x' or x = x' and y < y'. The goal configuration of a tile game is the configuration in which the tile labeled j is on a square less than any empty square and in which if w < v ≤ j are tile labels then the tile labeled w is on a square less than the tile labeled v. The 8-puzzle is a specific case of a tile puzzle. Make a Python script which solves tile games (if they are solvable) using the A* algorithm.
+
+Your program will be run from the command line as follows:
+
+python tile_game.py file_name
+
+Here file_name is the name of a text file that I supply containing the initial configuration of the tile_game. This file uses '.' to represent an empty tile, '#" to represent a non-movable tile, and the numbers 1 to j for the tiles. As an example, the file might contain the following:
+
+2..1
+3.#4
+After read this input, your program should try to solve the tile puzzle using the A* algorithm, and print out a sequences of boards, each representing one move in the steps needed to solve the puzzle. After this your program should stop. If there is no solution, your program should output "No solution" on a new line and stop. the sequences of moves. The exact sequence of steps will depend on the heuristic you use in your A* algorithm. One possible output, for the above puzzle would be:
+
+2..1
+3.#4
+
+2..1
+.3#4
+
+...1
+23#4
+
+..1.
+23#4
+
+.1..
+23#4
+
+1...
+23#4
+
+13..
+2.#4
+
+13..
+.2#4
+
+1.3.
+.2#4
+
+123.
+..#4
+
+1234
+..#.
